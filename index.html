@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 7 Miska</title>
+    <script src="main.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+</head>
+<body>
+
+    <div class="container">
+    <div class="row">
+    <div class="col-4">
+        <h2>Task tracker</h2>
+        <form>
+            <div class="mb-1">
+                <label for="ID" class="form-label">ID</label>
+                <input type="number" class="form-control" id="ID">
+            </div>
+            <div class="mb-1">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" id="title">
+            </div>
+            <div class="mb-1">
+                <label for="desc" class="form-label">Description</label>
+                <input type="text" class="form-control" id="desc">
+            </div>
+            <div class="mb-1">
+                <label for="timespent" class="form-label">Time spent (hours)</label>
+                <input type="number" class="form-control" id="timespent">
+            </div>
+            <div class="mb-1">
+                <label for="timetomaster" class="form-label">Time to master (hours)</label>
+                <input type="number" class="form-control" id="timetomaster">
+            </div>
+            <div class="mb-3">
+                <label for="source" class="form-label">Source</label>
+                <input type="text" class="form-control" id="source">
+            </div>
+            <div class="mb-3">
+                <label for="startlearningdate" class="form-label">Date of start</label>
+                <input type="date" class="form-control" id="startlearningdate">
+            </div>
+            <div class="mb-3 form-check">
+                <input class="form-check-input" type="checkbox" id="inprogress">
+                <label class="form-check-label" for="inprogress">
+                    In Progress
+                </label>
+            </div>
+        </form>
+        <button class="btn btn-primary" onclick=Task() id="nappula">Submit</button>
+    </div>    
+    <div class="col">
+        <h2>Tasks:</h2>
+        <table class="table text-center">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Time spent</th>
+                <th scope="col">Time to master</th>
+                <th scope="col">Source</th>
+                <th scope="col">Learning Start</th>
+                <th scope="col">In Progress</th>
+              </tr>
+            </thead>
+            <tbody id="table">
+              <tr>
+                <th scope="row" id="id_list"></th>
+                <td id="title_list"></td>
+                <td id="desc_list"></td>
+                <td id="timespent_list"></td>
+                <td id="timetomaster_list"></td>
+                <td id="source_list"></td>
+                <td id="startlearningdate_list"></td>
+                <td id="inprogress_list"></td>
+              </tr>
+              
+              
+            </tbody>
+          </table>
+    </div>
+    </div>
+    </div>
+</body>
+</html>
