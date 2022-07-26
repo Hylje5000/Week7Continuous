@@ -6,65 +6,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Week 7 Miska</title>
     <script src="main.js"></script>
+
+    <link rel="stylesheet" href="C:\Coding\JS\Week7Continuous\style.css">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 </head>
 <body>
 
     <div class="container">
     <div class="row">
-    <div class="col-4">
-        <h2>Task tracker</h2>
+    <div class="col-3">
+        <h2>Lisää</h2>
         <form>
-            <div class="mb-1">
+            <div class="row">
+            <div class="mb-1 col">
                 <label for="ID" class="form-label">ID</label>
                 <input type="number" class="form-control" id="ID">
             </div>
-            <div class="mb-1">
-                <label for="title" class="form-label">Title</label>
+            <div class="mb-1 col">
+                <label for="title" class="form-label">Nimi</label>
                 <input type="text" class="form-control" id="title">
             </div>
+            </div>
             <div class="mb-1">
-                <label for="desc" class="form-label">Description</label>
+                <label for="desc" class="form-label">Mallikuvaus</label>
                 <input type="text" class="form-control" id="desc">
             </div>
-            <div class="mb-1">
-                <label for="timespent" class="form-label">Time spent (hours)</label>
-                <input type="number" class="form-control" id="timespent">
+            <div class="row">
+            <div class="mb-1 col">
+                <label for="kuivapaino" class="form-label">Kuivapaino</label>
+                <input type="number" class="form-control" id="kuivapaino">
             </div>
-            <div class="mb-1">
-                <label for="timetomaster" class="form-label">Time to master (hours)</label>
-                <input type="number" class="form-control" id="timetomaster">
+            <div class="mb-1 col">
+                <label for="markapaino" class="form-label">Märkäpaino</label>
+                <input type="number" class="form-control" id="markapaino">
             </div>
-            <div class="mb-3">
-                <label for="source" class="form-label">Source</label>
-                <input type="text" class="form-control" id="source">
             </div>
             <div class="mb-3">
-                <label for="startlearningdate" class="form-label">Date of start</label>
-                <input type="date" class="form-control" id="startlearningdate">
+                <label for="linja" class="form-label">Valmistuslinja</label>
+                <input type="number" class="form-control" id="linja">
+            </div>
+            <div class="mb-3">
+                <label for="aloitus" class="form-label">Valmistus aloitettu</label>
+                <input type="date" class="form-control" id="aloitus">
+            </div>
+            <div class="mb-3">
+                <label for="lopetus" class="form-label">Valmistus lopetettu</label>
+                <input type="date" class="form-control" id="lopetus">
             </div>
             <div class="mb-3 form-check">
-                <input class="form-check-input" type="checkbox" id="inprogress">
-                <label class="form-check-label" for="inprogress">
-                    In Progress
+                <input class="form-check-input" type="checkbox" id="viimeistely">
+                <label class="form-check-label" for="viimeistely">
+                    Viimeistelty
                 </label>
             </div>
         </form>
-        <button class="btn btn-primary" onclick=Task() id="nappula">Submit</button>
+        <button class="btn btn-primary" onclick=Kuormaaja() id="nappula">Lisää</button>
     </div>    
-    <div class="col">
-        <h2>Tasks:</h2>
+    <div class="col text-center">
+        <h2>KuormaajaKatalogi</h2>
         <table class="table text-center">
             <thead>
               <tr>
                 <th scope="col">ID</th>
-                <th scope="col">Title</th>
-                <th scope="col">Description</th>
-                <th scope="col">Time spent</th>
-                <th scope="col">Time to master</th>
-                <th scope="col">Source</th>
-                <th scope="col">Learning Start</th>
-                <th scope="col">In Progress</th>
+                <th scope="col">Nimi</th>
+                <th scope="col">Mallikuvaus</th>
+                <th scope="col">Kuivapaino</th>
+                <th scope="col">Märkäpaino</th>
+                <th scope="col">Valmistuslinja</th>
+                <th scope="col">Valmistus aloitettu</th>
+                <th scope="col">Valmistus lopetettu</th>
+                <th scope="col">Viimeistelty</th>
               </tr>
             </thead>
             <tbody id="table">

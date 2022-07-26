@@ -1,70 +1,61 @@
-let teksti = "hei maailma";
-let numero = 10;
-let desimaali = 5.555;
-let bool = true;
-let array = ["banaani 🍌", "mansikka 🍓", "kirsikka 🍒"];
-const objekti = {
-    banaani: "🍌",
-    mansikka: "🍓",
-    kirsikka: "🍒"
-};
 
-function Task() {
+function Kuormaaja() {
+
+    let kuormaaja = [];
+    let kaikki = [];
+
     let id = document.getElementById('ID').value;
     let title = document.getElementById('title').value;
     let desc = document.getElementById('desc').value;
-    let timetomaster = document.getElementById('timetomaster').value;
-    let timespent = document.getElementById('timespent').value;
-    let source = document.getElementById('source').value;
-    let startlearningdate = document.getElementById('startlearningdate').value;
-    let inprogress = document.getElementById('inprogress');
+    let kuivapaino = document.getElementById('kuivapaino').value;
+    let markapaino = document.getElementById('markapaino').value;
+    let linja = document.getElementById('linja').value;
+    let aloitus = document.getElementById('aloitus').value;
+    let lopetus = document.getElementById('lopetus').value;
+    let viimeistely = document.getElementById('viimeistely');
     
-    if(inprogress.checked){
-        inprogress = "✅"
+    if(viimeistely.checked){
+        viimeistely = "✅"
     }
     else {
-        inprogress = "❌"
+        viimeistely = "❌"
     }
+
+    kuormaaja = [id, title, desc, kuivapaino, markapaino, linja, aloitus, lopetus, viimeistely];
+    kaikki.push(kuormaaja);
 
     let table = document.getElementById('table');
 
     let row = table.insertRow(0)
 
-    let cell1 = row.insertCell(0);
-    let cell2 = row.insertCell(1);
-    let cell3 = row.insertCell(2);
-    let cell4 = row.insertCell(3);
-    let cell5 = row.insertCell(4);
-    let cell6 = row.insertCell(5);
-    let cell7 = row.insertCell(6);
-    let cell8 = row.insertCell(7);
-    cell1.innerHTML = id;
-    cell2.innerHTML = title;
-    cell3.innerHTML = desc;
-    cell4.innerHTML = timespent;
-    cell5.innerHTML = timetomaster;
-    cell6.innerHTML = source;
-    cell7.innerHTML = startlearningdate;
-    cell8.innerHTML = inprogress;
+    
+    kaikki.forEach(function(row) {
+        let newRow = document.createElement('tr');
+        table.appendChild(newRow);
 
-
-    //document.getElementById('id_list').innerHTML = id;
-    //document.getElementById('title_list').innerHTML = title;
-    //document.getElementById('desc_list').innerHTML = desc;
-    //document.getElementById('timetomaster_list').innerHTML = timetomaster;
-    //document.getElementById('timespent_list').innerHTML = timespent;
-    //document.getElementById('source_list').innerHTML = source;
-    //document.getElementById('startlearningdate_list').innerHTML = startlearningdate;
-    //document.getElementById('inprogress_list').innerHTML = inprogress;
+        if(row instanceof Array) {
+            row.forEach(function(cell) {
+                let newCell = document.createElement('td');
+                newCell.innerHTML = cell;
+                newRow.appendChild(newCell);
+                });
+            }
+        else {
+            newCell = document.createElement('td');
+            newCell.innerHTML = row;
+            newRow.appendChild(newCell);
+        }
+    });
 
     document.getElementById('ID').value = "";
     document.getElementById('title').value = "";
     document.getElementById('desc').value = "";
-    document.getElementById('timetomaster').value = "";
-    document.getElementById('timespent').value = "";
-    document.getElementById('source').value = "";
-    document.getElementById('startlearningdate').value = "";
-    document.getElementById('inprogress').checked = false;
+    document.getElementById('kuivapaino').value = "";
+    document.getElementById('markapaino').value = "";
+    document.getElementById('linja').value = "";
+    document.getElementById('aloitus').value = "";
+    document.getElementById('lopetus').value = "";
+    document.getElementById('viimeistely').checked = false;
 }
 
 
