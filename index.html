@@ -61,7 +61,10 @@
                 </label>
             </div>
         </form>
-        <button class="btn btn-primary" onclick=Kuormaaja() id="nappula">Lisää</button>
+        <div class="row-xs-3">
+        <button class="btn btn-primary btn-block" onclick=Kuormaaja() id="nappula">Lisää</button>
+        <button class="btn btn-secondary btn-block" onclick=Load() id="nappula">Lataa muistista</button>
+        </div>
     </div>    
     <div class="col text-center">
         <h2>KuormaajaKatalogi</h2>
@@ -80,17 +83,6 @@
               </tr>
             </thead>
             <tbody id="table">
-              <tr>
-                <th scope="row" id="id_list"></th>
-                <td id="title_list"></td>
-                <td id="desc_list"></td>
-                <td id="timespent_list"></td>
-                <td id="timetomaster_list"></td>
-                <td id="source_list"></td>
-                <td id="startlearningdate_list"></td>
-                <td id="inprogress_list"></td>
-              </tr>
-              
               
             </tbody>
           </table>

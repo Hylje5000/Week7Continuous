@@ -1,8 +1,8 @@
+let kuormaaja = [];
+let kaikki = [];
+
 
 function Kuormaaja() {
-
-    let kuormaaja = [];
-    let kaikki = [];
 
     let id = document.getElementById('ID').value;
     let title = document.getElementById('title').value;
@@ -23,12 +23,17 @@ function Kuormaaja() {
 
     kuormaaja = [id, title, desc, kuivapaino, markapaino, linja, aloitus, lopetus, viimeistely];
     kaikki.push(kuormaaja);
+    console.log(kaikki)
 
     let table = document.getElementById('table');
 
     let row = table.insertRow(0)
 
-    
+    //clear table
+    while(table.rows.length > 1) {
+        table.deleteRow(1);
+    }
+
     kaikki.forEach(function(row) {
         let newRow = document.createElement('tr');
         table.appendChild(newRow);
@@ -56,9 +61,41 @@ function Kuormaaja() {
     document.getElementById('aloitus').value = "";
     document.getElementById('lopetus').value = "";
     document.getElementById('viimeistely').checked = false;
+
+    // tallenetaan taulukko localStorageen
+    localStorage.setItem('kuormaajat', JSON.stringify(kaikki));
+
 }
 
+function Load() {
+    // get data from localStorage
+    let data = JSON.parse(localStorage.getItem('kuormaajat'));
+    // map data to table
+    let table = document.getElementById('table');
+
+    // if rows in table, delete them
+    while(table.rows.length >= 1) {
+        table.deleteRow(0);
+    }
 
 
+    data.forEach(function(row) {
+        let newRow = document.createElement('tr');
+        table.appendChild(newRow);
+
+        if(row instanceof Array) {
+            row.forEach(function(cell) {
+                let newCell = document.createElement('td');
+                newCell.innerHTML = cell;
+                newRow.appendChild(newCell);
+                });
+            }
+        else {
+            newCell = document.createElement('td');
+            newCell.innerHTML = row;
+            newRow.appendChild(newCell);
+        }
+    });
+}
 
 
